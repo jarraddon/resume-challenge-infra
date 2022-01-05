@@ -6,22 +6,12 @@ resource "aws_cloudfront_distribution" "s3_distribution" {
   origin {
     domain_name = aws_s3_bucket.cloud_resume_bucket.bucket_regional_domain_name
     origin_id   = local.s3_origin_id
-
-    s3_origin_config {
-      origin_access_identity = "origin-access-identity/cloudfront/ABCDEFG1234567"
-    }
   }
 
   enabled             = true
   is_ipv6_enabled     = true
-  comment             = "Some comment"
+  comment             = "Distribution for the reusme challenge"
   default_root_object = "index.html"
-
-  logging_config {
-    include_cookies = false
-    bucket          = "mylogs.s3.amazonaws.com"
-    prefix          = "myprefix"
-  }
 
   default_cache_behavior {
     allowed_methods  = ["GET", "HEAD", "OPTIONS"]
@@ -67,7 +57,7 @@ resource "aws_cloudfront_distribution" "s3_distribution" {
 
   # Cache behavior with precedence 1
   ordered_cache_behavior {
-    path_pattern     = "/content/*"
+    path_pattern     = "/*"
     allowed_methods  = ["GET", "HEAD", "OPTIONS"]
     cached_methods   = ["GET", "HEAD"]
     target_origin_id = local.s3_origin_id
