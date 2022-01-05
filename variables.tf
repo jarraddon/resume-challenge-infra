@@ -5,5 +5,5 @@ variable "bucket_name" {
 
 variable "region" {
     type = string
-    description = "The AWS Region that is to be used"
+    description = "The AWS Region that is to be used in"
 }
