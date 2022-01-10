@@ -8,7 +8,7 @@ resource "aws_cloudfront_distribution" "s3_distribution" {
     origin_id   = local.s3_origin_id
   }
 
-  enabled             = true
+  enabled             = false
   is_ipv6_enabled     = true
   comment             = "Distribution for the resume challenge"
   default_root_object = "index.html"
