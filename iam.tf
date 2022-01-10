@@ -12,3 +12,15 @@ data "aws_iam_policy_document" "website_policy" {
     ]
   }
 }
+
+data "aws_iam_policy_document" "cloud_challenge_cicd" {
+  statement {
+    actions = [
+      "s3:GetObject"
+    ]
+
+    resources = [
+      "arn:aws:s3:::${var.bucket_name}/*"
+    ]
+  }
+}
