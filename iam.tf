@@ -16,10 +16,11 @@ data "aws_iam_policy_document" "website_policy" {
 data "aws_iam_policy_document" "cloud_challenge_cicd" {
   statement {
     actions = [
-        "s3:DeleteObject",
-        "s3:GetObject",
-        "s3:ListBucket",
-        "s3:PutObject"
+      "s3:PutObject",
+      "s3:PutObjectAcl",
+      "s3:GetObject",
+      "s3:GetObjectAcl",
+      "s3:DeleteObject"
     ]
 
     resources = [
