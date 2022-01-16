@@ -1,11 +1,11 @@
 terraform {
   cloud {
-      organization = "jraddon"
-      workspaces {
-          name = "resume-challenge-infra"
-      }
+    organization = "jraddon"
+    workspaces {
+      name = "resume-challenge-infra"
+    }
   }
-  
+
   required_providers {
     aws = {
       source  = "hashicorp/aws"
